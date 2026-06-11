@@ -1,0 +1,6 @@
+@Balasana_HostAddress = http://localhost:5111
+
+GET {{Balasana_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

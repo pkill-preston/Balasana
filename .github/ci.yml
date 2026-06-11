@@ -1,0 +1,41 @@
+name: Build
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # IMPORTANT: required to read commit history
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 9.0.x
+
+      - name: Validate commit messages
+        run: |
+          regex="^(feat|fix|test|docs|refactor|chore|ci|style)\([a-z0-9-]+\): [a-z].{3,70}$"
+
+          echo "Checking commits..."
+
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            range="origin/${{ github.base_ref }}..HEAD"
+          else
+            range="HEAD~20..HEAD"
+          fi
+
+          git log $range --pretty=%s | while read msg; do
+            echo "$msg" | grep -Eq "$regex" || (
+              echo "❌ Invalid commit: $msg"
+              exit 1
+            )
+          done
+
+      - run: dotnet restore
+      - run: dotnet build --no-restore
+      - run: dotnet test --no-build
