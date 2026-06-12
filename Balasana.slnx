@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Balasana.Api/Balasana.Api.csproj" />
+    <Project Path="src/Balasana.Application/Balasana.Application.csproj" />
+    <Project Path="src/Balasana.Domain/Balasana.Domain.csproj" />
+    <Project Path="src/Balasana.Infrastructure/Balasana.Infrastructure.csproj" />
+    <Project Path="src/Balasana.UnitTests/Balasana.UnitTests.csproj" />
+  </Folder>
+</Solution>

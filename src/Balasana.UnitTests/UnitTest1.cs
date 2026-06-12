@@ -1,4 +1,4 @@
-﻿namespace Balasena.UnitTests;
+﻿namespace Balasana.UnitTests;
 
 public class UnitTest1
 {

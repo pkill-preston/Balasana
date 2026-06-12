@@ -18,4 +18,10 @@
     <Using Include="Xunit" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Balasana.Application\Balasana.Application.csproj" />
+    <ProjectReference Include="..\Balasana.Domain\Balasana.Domain.csproj" />
+    <ProjectReference Include="..\Balasana.Infrastructure\Balasana.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>
